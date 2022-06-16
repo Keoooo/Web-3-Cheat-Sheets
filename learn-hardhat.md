@@ -16,6 +16,12 @@ npm install --save-dev hardhat`
 this will generate some accounts for us on the node.
 
 
+### Console logs
+
+you have to import console logs to your sol file so you can use for debugging. 
+
+`import "hardhat/console.sol";`
+
 ### use hardhat in you project 
 
 import hardhat to the top of your sol file. 
@@ -48,4 +54,12 @@ creates a test.js under scripts.
 - start new terminal in root hardhat project folder 
 - `npx hardhat node`
 - will create a local eth node with 10 addresses and private keys with 10000 ETH on 
-- 
+
+
+
+
+### Useful links
+[Hardhat DOCS ](https://hardhat.org/getting-started)
+
+[Hardhat plugins ](https://hardhat.org/plugins)
+
