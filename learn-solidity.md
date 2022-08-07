@@ -69,16 +69,6 @@ Outer Bounds Error
 
 If you try to assess an array greater than or less than the array
 
-```
-// example: Outer Bounds Error
-
-
-contract FixedSizeArrays{
-    uint[3] public numbers = [2,3,4,5],
-}
-
-```
-
 **_Change An Array Value_**
 
 ```
@@ -142,9 +132,70 @@ if an array is initialized with not a full value padding will be added.
 - bytes
 - string (UTF-8 encoded) is a dynamic array similar to bytes
 - can hold any type
-- members: length and push
+- members: length and push, pop
+
+- length(length of array)
+- push(push item to end of an array)
+- pop(removes element from the end of an array)
+
+```
+//SPDX-License-Identifier: GPL-3.0
+
+pragma solidity >=0.5.0 <0.9.0;
+
+contract DynamicArrays{
+// dynamic array of type uint
+uint[] public numbers;
+
+// returning length
+function getLength() public view returns(uint){
+return numbers.length;
+}
+
+// appending a new element
+function addElement(uint item) public{
+numbers.push(item);
+}
+
+// returning an element at an index
+function getElement(uint i) public view returns(uint){
+if(i < numbers.length){
+return numbers[i];
+}
+return 0;
+}
+
+
+// removing the last element of the array
+function popElement() public{
+numbers.pop();
+}
+
+function f() public{
+// declaring a memory dynamic array
+// it's not possible to resize memory arrays (push() and pop() are not available).
+uint[] memory y = new uint[](3);
+y[0] = 10;
+y[1] = 20;
+y[2] = 30;
+numbers = y;
+}
+
+}
 
 ```
 
+### BytesAndStrings
+
+One difference between bytes and string is that we cannot add elements to a string variable as we can with type bytes
 
 ```
+contract BytesAndString {
+
+    bytes public b1 = 'abc'  // Value: 0x616263
+    string public s1 = 'sbc  // Value: abc
+
+}
+```
+
+### Struct
