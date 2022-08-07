@@ -18,8 +18,8 @@ Make sure the version is the same as the  `hardhat.config.js`
 
 - Signed and unsigned integers of various sizes
 
-| ---------- | ----------- | ----------- |
-| Type | Desc | Example |
+| Type | Example | Example |
+| ------------- |:-------------:|:-------------:||
 | Unsigned Int | uint8 to uint 256 In steps on 8, default 0 | `uint8 public x = 255` |
 | Signed Int | int8 to int 256 In steps on 8, default 0 | `int8 public x = -10` |
 | Boolean | True,False | `bool public name` |
