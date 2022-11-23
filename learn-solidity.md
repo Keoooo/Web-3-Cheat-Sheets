@@ -1,5 +1,28 @@
 # Solidity notes/ cheatsheet
 
+
+# Table of contents
+- [Solidity notes/ cheatsheet](#solidity-notes-cheatsheet)
+- [Table of contents](#table-of-contents)
+    - [Versions](#versions)
+    - [Functions](#functions)
+    - [Function Visibility Specifiers](#function-visibility-specifiers)
+    - [Function modifiers](#function-modifiers)
+    - [Solidity Variables Types](#solidity-variables-types)
+    - [SafeMath underflow/overflow](#safemath-underflowoverflow)
+    - [Fixed-size Arrays](#fixed-size-arrays)
+    - [Dynamically-sized Arrays](#dynamically-sized-arrays)
+    - [BytesAndStrings](#bytesandstrings)
+    - [Struct](#struct)
+    - [Events](#events)
+    - [Typecasting](#typecasting)
+    - [Enums](#enums)
+    - [Mappings](#mappings)
+    - [Global Variables](#global-variables)
+    - [Contract Address](#contract-address)
+    - [Fallback Functions](#fallback-functions)
+    - [Access Contract Balance](#access-contract-balance)
+
 ### Versions
 
 Add to top of file to clarify the version you want to use.
@@ -10,7 +33,7 @@ nothing lower than 0.8.0 will be used in this example
 
 Make sure the version is the same as the  `hardhat.config.js`
 
-### Function
+### Functions
 
 
 - it is convention to start private function names with an underscore (_).
@@ -271,8 +294,8 @@ how front end will listen u
 
 ```YourContract.IntegersAdded(function(error, result) {
   // do something with result
-})```
-
+})
+```
 ### Typecasting
 
 Typecasting converts data types 
