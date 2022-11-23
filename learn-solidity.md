@@ -4,26 +4,26 @@
 # Table of contents
 - [Solidity notes/ cheatsheet](#solidity-notes-cheatsheet)
 - [Table of contents](#table-of-contents)
-    - [Versions](#versions)
-    - [Functions](#functions)
-    - [Function Visibility Specifiers](#function-visibility-specifiers)
-    - [Function modifiers](#function-modifiers)
-    - [Solidity Variables Types](#solidity-variables-types)
-    - [SafeMath underflow/overflow](#safemath-underflowoverflow)
-    - [Fixed-size Arrays](#fixed-size-arrays)
-    - [Dynamically-sized Arrays](#dynamically-sized-arrays)
-    - [BytesAndStrings](#bytesandstrings)
-    - [Struct](#struct)
-    - [Events](#events)
-    - [Typecasting](#typecasting)
-    - [Enums](#enums)
-    - [Mappings](#mappings)
-    - [Global Variables](#global-variables)
-    - [Contract Address](#contract-address)
-    - [Fallback Functions](#fallback-functions)
-    - [Access Contract Balance](#access-contract-balance)
+    - [*Versions*](#versions)
+    - [*Functions*](#functions)
+    - [*Function Visibility Specifiers*](#function-visibility-specifiers)
+    - [*Function modifiers*](#function-modifiers)
+    - [*Solidity Variables Types*](#solidity-variables-types)
+    - [*SafeMath underflow/overflow*](#safemath-underflowoverflow)
+    - [*Fixed-size Arrays*](#fixed-size-arrays)
+    - [*Dynamically-sized Arrays*](#dynamically-sized-arrays)
+    - [*BytesAndStrings*](#bytesandstrings)
+    - [*Struct*](#struct)
+    - [*Events*](#events)
+    - [*Typecasting*](#typecasting)
+    - [*Enums*](#enums)
+    - [*Mappings*](#mappings)
+    - [*Global Variables*](#global-variables)
+    - [*Contract Address*](#contract-address)
+    - [*Fallback Functions*](#fallback-functions)
+    - [*Access Contract Balance*](#access-contract-balance)
 
-### Versions
+### *Versions*
 
 Add to top of file to clarify the version you want to use.
 
@@ -33,7 +33,7 @@ nothing lower than 0.8.0 will be used in this example
 
 Make sure the version is the same as the  `hardhat.config.js`
 
-### Functions
+### *Functions*
 
 
 - it is convention to start private function names with an underscore (_).
@@ -46,7 +46,7 @@ function foo() public returns (string memory) {
 ```
 
 
-### Function Visibility Specifiers
+### *Function Visibility Specifiers*
 
 *** Functions by default are set to public this can make you vulnerable to attacks  ***
 *** only make public the functions you want to expose to the world. ***
@@ -58,7 +58,7 @@ function foo() public returns (string memory) {
 
 - internal: only visible internally
 
-### Function modifiers
+### *Function modifiers*
 
 - **_ pure _** for functions: Disallows modification or access of state.
 - **_ view _** for functions: Disallows modification of state.
@@ -70,7 +70,7 @@ function foo() public returns (string memory) {
 - **_ virtual_** for functions and modifiers: Allows the function’s or modifier’s behaviour to be changed in derived contracts.
 - **_ override:_** States that this function, modifier or public state variable changes the behaviour of a function or modifier in a base contract.
 
-### Solidity Variables Types
+### *Solidity Variables Types*
 
 **Simple Types**
 
@@ -82,7 +82,7 @@ function foo() public returns (string memory) {
 - | Signed Int | int8 to int 256 In steps on 8, default 0 | `int8 public x = -10` |
 - | Boolean | True,False | `bool public name` |
 
-### SafeMath underflow/overflow
+### *SafeMath underflow/overflow*
 
 batch overflow exploit
 
@@ -108,7 +108,7 @@ If a overflow or underflow happens after this version the contract will revert t
 https://hackernoon.com/hack-solidity-integer-overflow-and-underflow
 https://peckshield.medium.com/alert-new-batchoverflow-bug-in-multiple-erc20-smart-contracts-cve-2018-10299-511067db6536
 
-### Fixed-size Arrays
+### *Fixed-size Arrays*
 
 - Has a compile-time fixed size
 - bytes1, bytes 2, ... bytes 32
@@ -187,7 +187,7 @@ https://www.asciitable.com/
 
 if an array is initialized with not a full value padding will be added.
 
-### Dynamically-sized Arrays
+### *Dynamically-sized Arrays*
 
 - bytes
 - string (UTF-8 encoded) is a dynamic array similar to bytes
@@ -245,7 +245,7 @@ numbers = y;
 
 ```
 
-### BytesAndStrings
+### *BytesAndStrings*
 
 One difference between bytes and string is that we cannot add elements to a string variable as we can with type bytes
 
@@ -258,7 +258,7 @@ contract BytesAndString {
 }
 ```
 
-### Struct
+### *Struct*
 
 A Struct types are used to represent a record.
 
@@ -277,7 +277,7 @@ struct Car{
 ```
 
 
-### Events
+### *Events*
 Event is an inheritable member of a contract.
 An event can be declared using event keyword.
 
@@ -296,12 +296,12 @@ how front end will listen u
   // do something with result
 })
 ```
-### Typecasting
+### *Typecasting*
 
 Typecasting converts data types 
 
 
-### Enums
+### *Enums*
 
 Enums restrict a variable to have one of only a few predefined values. The values in this enumerated list are called enums.
 
@@ -321,7 +321,7 @@ Enums restrict a variable to have one of only a few predefined values. The value
     later in the code you can use for if statements ect
 ```
 
-### Mappings
+### *Mappings*
 
 Mapping is a reference type as arrays and structs. Following is the syntax to declare a mapping type.
 
@@ -358,11 +358,11 @@ contract Auction{
 
 ```
 
-### Global Variables
+### *Global Variables*
 
-================
 
-commonly used
+
+***commonly used***
 
 ```
 //SPDX-License-Identifier: GPL-3.0
@@ -473,9 +473,7 @@ return address(this).balance;
 - `type(T).min` (`T`): the minimum value representable by the integer type `T`, see :ref:`Type Information<meta-type>`.
 - `type(T).max` (`T`): the maximum value representable by the integer type `T`, see :ref:`Type Information<meta-type>`.
 
-### Contract Address
-
-================
+### *Contract Address*
 
 - Any contract has its own unique address which is generated at deployment
 - The contract address is generated based on the address of the creator contract and the no. transactions of that account (nonce) it cant be calculated in advance
@@ -488,9 +486,8 @@ return address(this).balance;
   - send()
   - call() callcode() delegatecall()
 
-### Fallback Functions
+### *Fallback Functions*
 
-================
 
 fallback function is an external function with neither a name, parameters, or return values. It is executed in one of the following cases:
 
@@ -498,9 +495,8 @@ fallback function is an external function with neither a name, parameters, or re
 - If there was no data supplied along with the function call.
 - Only one such unnamed function can be assigned to a contract.
 
-### Access Contract Balance
+### *Access Contract Balance*
 
-================
 
 //SPDX-License-Identifier: GPL-3.0
 
