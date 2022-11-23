@@ -10,8 +10,23 @@ nothing lower than 0.8.0 will be used in this example
 
 Make sure the version is the same as the  `hardhat.config.js`
 
+### Function
+
+
+- it is convention to start private function names with an underscore (_).
+- In Solidity, the function declaration contains the type of the return value
+
+```
+function foo() public returns (string memory) {
+  return foo;
+}
+```
+
+
 ### Function Visibility Specifiers
 
+*** Functions by default are set to public this can make you vulnerable to attacks  ***
+*** only make public the functions you want to expose to the world. ***
 - public: visible externally and internally (creates a getter function for storage/state variables)
 
 - private: only visible in the current contract
@@ -20,7 +35,7 @@ Make sure the version is the same as the  `hardhat.config.js`
 
 - internal: only visible internally
 
-### Modifiers
+### Function modifiers
 
 - **_ pure _** for functions: Disallows modification or access of state.
 - **_ view _** for functions: Disallows modification of state.
@@ -230,7 +245,6 @@ To define a Struct, you must use the **_ struct_** keyword
 // Example
 
 struct Car{
-
     string brand;
     uint year;
     uint price;
@@ -238,6 +252,31 @@ struct Car{
 
 
 ```
+
+
+### Events
+Event is an inheritable member of a contract.
+An event can be declared using event keyword.
+
+```
+//Declare an Event
+event Deposit(address indexed _from, bytes32 indexed _id, uint _value);
+```
+
+
+```emit Deposit(msg.sender, _id, msg.value)```
+
+
+how front end will listen u
+
+```YourContract.IntegersAdded(function(error, result) {
+  // do something with result
+})```
+
+### Typecasting
+
+Typecasting converts data types 
+
 
 ### Enums
 
