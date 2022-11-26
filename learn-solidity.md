@@ -6,6 +6,8 @@
 - [Table of contents](#table-of-contents)
     - [*Versions*](#versions)
     - [*Functions*](#functions)
+    - [*Import*](#import)
+    - [*Storage vs Memory*](#storage-vs-memory)
     - [*Function Visibility Specifiers*](#function-visibility-specifiers)
     - [*Function modifiers*](#function-modifiers)
     - [*Solidity Variables Types*](#solidity-variables-types)
@@ -13,6 +15,8 @@
     - [*Fixed-size Arrays*](#fixed-size-arrays)
     - [*Dynamically-sized Arrays*](#dynamically-sized-arrays)
     - [*BytesAndStrings*](#bytesandstrings)
+    - [*Require*](#require)
+    - [*Inheritance*](#inheritance)
     - [*Struct*](#struct)
     - [*Events*](#events)
     - [*Typecasting*](#typecasting)
@@ -44,8 +48,23 @@ function foo() public returns (string memory) {
   return foo;
 }
 ```
+### *Import*
 
 
+
+### *Storage vs Memory*
+
+variables can be stored in two places. storage and memory 
+
+Storage refers to variables stored permanently on the blockchain
+Memory variables are temporary, and are erased between external function calls to your contract.
+
+The Gas consumption of Memory is not very significant as compared to the gas consumption of Storage
+
+1.State variables and Local Variables of structs, array are always stored in storage by default.
+2.Function arguments are in memory.
+3.Whenever a new instance of an array is created using the keyword ‘memory’, a new copy of that variable is created. Changing the array value of the new instance does not affect the original array.
+`
 ### *Function Visibility Specifiers*
 
 *** Functions by default are set to public this can make you vulnerable to attacks  ***
@@ -257,6 +276,15 @@ contract BytesAndString {
 
 }
 ```
+### *Require*
+
+require makes it so that the function will throw an error and stop executing if some condition is not true
+
+require takes two parameters, first is the condition that you want to check and the second is an optional error message you want to show to the user when and if the value returned is false.
+
+### *Inheritance*
+
+
 
 ### *Struct*
 

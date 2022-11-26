@@ -34,7 +34,7 @@ import hardhat to the top of your sol file.
 creates a test.js under scripts. 
 
 1.  `const fooContractFactory = await hre.ethers.getContractFactory("*- THIS WILL BE CONTRACT NAME IN SOL file  -*")` this will complie and make an artifacts file. helps us work with contract 
-2. ` const fooContract = await fooContractFactory.deploy();` creates a local ether network. NOTE: everytime you run its a fresh blockchain. 
+2. ` const fooContract = await fooContractFactory.deploy();` creates a local ether network. NOTE: every time you run its a fresh blockchain. 
 3. `constructor`  in the .sol will run 
 4.  `fooContract.address` you can get the address of who deployed the contract. 
 
