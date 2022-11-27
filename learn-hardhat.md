@@ -3,15 +3,19 @@
 
 ### Install 
 
-`mkdir my-wave-portal
+```
+mkdir my-wave-portal
 cd my-wave-portal
 npm init -y
-npm install --save-dev hardhat`
+npm install --save-dev hardhat
+```
 
 
 ### Run HARDHAT
 
-`npx hardhat`
+```
+npx hardhat
+```
 
 this will generate some accounts for us on the node.
 
@@ -20,13 +24,17 @@ this will generate some accounts for us on the node.
 
 you have to import console logs to your sol file so you can use for debugging. 
 
-`import "hardhat/console.sol";`
+```
+import "hardhat/console.sol";
+```
 
 ### use hardhat in you project 
 
 import hardhat to the top of your sol file. 
 
-`import "hardhat/console.sol";`
+```
+import "hardhat/console.sol";
+```
 
 
 ###  Test a smart contract steps
