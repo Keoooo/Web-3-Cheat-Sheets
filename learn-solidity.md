@@ -30,6 +30,7 @@
     - [*Access Contract Balance*](#access-contract-balance)
 - [Solidity Concepts](#solidity-concepts)
     - [*Immutability of Contracts*](#immutability-of-contracts)
+    - [*Ownable Contracts*](#ownable-contracts)
 
 
 ### *Versions*
@@ -83,6 +84,10 @@ The Gas consumption of Memory is not very significant as compared to the gas con
 - internal: only visible internally
 
 ### *Function modifiers*
+
+Function Modifiers are used to modify the behavior of a function. For example to add a prerequisite to a function.
+
+
 
 - **_ pure _** for functions: Disallows modification or access of state.
 - **_ view _** for functions: Disallows modification of state.
@@ -620,3 +625,12 @@ Smart contracts are immutable so the contract can not be modified or updated aga
 BUT - developers can create inbuilt upgrade and delete functions to there contracts. 
 
 
+### *Ownable Contracts*
+
+ Most of the time we don't want everyone to be able to update our smart contracts. 
+ Common practice is to make a contract ownable. meaning the owner will have the special privileges.
+
+ Because constructors are executed only one time, when the contract is first created this is a great place to declare your contract owner using msg.sender. 
+
+ A good reference for contract ownership is the contract below a lot of contracts inherit this contract. 
+ https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/access/Ownable.sol#L43
