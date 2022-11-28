@@ -11,6 +11,7 @@
     - [*Function Visibility Specifiers*](#function-visibility-specifiers)
     - [*Function modifiers*](#function-modifiers)
     - [*Solidity Variables Types*](#solidity-variables-types)
+    - [*If statements*](#if-statements)
     - [*SafeMath underflow/overflow*](#safemath-underflowoverflow)
     - [*Fixed-size Arrays*](#fixed-size-arrays)
     - [*Dynamically-sized Arrays*](#dynamically-sized-arrays)
@@ -22,10 +23,14 @@
     - [*Typecasting*](#typecasting)
     - [*Enums*](#enums)
     - [*Mappings*](#mappings)
+    - [*Interfaces*](#interfaces)
     - [*Global Variables*](#global-variables)
     - [*Contract Address*](#contract-address)
     - [*Fallback Functions*](#fallback-functions)
     - [*Access Contract Balance*](#access-contract-balance)
+- [Solidity Concepts](#solidity-concepts)
+    - [*Immutability of Contracts*](#immutability-of-contracts)
+
 
 ### *Versions*
 
@@ -73,7 +78,7 @@ The Gas consumption of Memory is not very significant as compared to the gas con
 
 - private: only visible in the current contract
 
-- external: only visible externally (only for functions) - i.e. can only be message-called (via this.func)
+- external: only visible externally (only for functions) - i.e. can only be message-called (via this.func) they can't be called by other functions inside that contract.
 
 - internal: only visible internally
 
@@ -100,6 +105,25 @@ The Gas consumption of Memory is not very significant as compared to the gas con
 - | Unsigned Int | uint8 to uint 256 In steps on 8, default 0 | `uint8 public x = 255` |
 - | Signed Int | int8 to int 256 In steps on 8, default 0 | `int8 public x = -10` |
 - | Boolean | True,False | `bool public name` |
+
+### *If statements*
+
+In Solidity if statements look similar to javascript syntax,
+
+```
+if (expression 1) {
+   Statement(s) to be executed if expression 1 is true
+} else if (expression 2) {
+   Statement(s) to be executed if expression 2 is true
+} else if (expression 3) {
+   Statement(s) to be executed if expression 3 is true
+} else {
+   Statement(s) to be executed if no expression is true
+}
+
+```
+
+
 
 ### *SafeMath underflow/overflow*
 
@@ -386,6 +410,21 @@ contract Auction{
 
 ```
 
+### *Interfaces*
+Solidity allows you to interact with other contracts without having their code by using their interface.
+
+- The Solidity interface can inherit from other interfaces
+- Contracts can inherit interfaces as they would inherit other contracts
+- You can override an interface function
+- Data types defined inside interfaces can be accessed from other       contracts
+
+```
+interface Divide {
+   function getOutput() external view returns(uint);
+}
+```
+
+
 ### *Global Variables*
 
 
@@ -567,3 +606,13 @@ pragma solidity >=0.5.0 <0.9.0;
  }
 
 ```
+
+# Solidity Concepts 
+
+
+### *Immutability of Contracts*
+
+Smart contracts are immutable so the contract can not be modified or updated again
+
+"This is one reason security is such a huge concern in Solidity. If there's a flaw in your contract code, there's no way for you to patch it late"
+

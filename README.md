@@ -17,7 +17,7 @@ A place to dump my random findings when having an explore with solidity and web3
 ### *Websites*
 
 https://cryptozombies.io/
-
+https://docs.soliditylang.org/en/develop/introduction-to-smart-contracts.html
 https://buildspace.so/
 
 
