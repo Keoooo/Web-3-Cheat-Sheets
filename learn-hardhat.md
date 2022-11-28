@@ -1,5 +1,6 @@
+# Hardhat Reference Guide
 
-# Hardhat notes/ cheatsheet
+Hardhat is a development environment that coders and developers can use to test, debug, compile and deploy contracts and dApps based on the Ethereum blockchain.
 
 ### Install 
 

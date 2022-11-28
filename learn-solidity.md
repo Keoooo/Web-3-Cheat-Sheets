@@ -1,8 +1,8 @@
-# Solidity notes/ cheatsheet
+# Solidity Reference Guide
 
 
 # Table of contents
-- [Solidity notes/ cheatsheet](#solidity-notes-cheatsheet)
+- [Solidity Reference Guide](#solidity-reference-guide)
 - [Table of contents](#table-of-contents)
     - [*Versions*](#versions)
     - [*Functions*](#functions)
@@ -615,4 +615,8 @@ pragma solidity >=0.5.0 <0.9.0;
 Smart contracts are immutable so the contract can not be modified or updated again
 
 "This is one reason security is such a huge concern in Solidity. If there's a flaw in your contract code, there's no way for you to patch it late"
+
+
+BUT - developers can create inbuilt upgrade and delete functions to there contracts. 
+
 

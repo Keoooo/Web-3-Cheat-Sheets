@@ -1,6 +1,5 @@
 # learning-web3-solidity-hardhart
 
-
 A place to dump my random findings when having an explore with solidity and web3
 
 
@@ -9,7 +8,7 @@ A place to dump my random findings when having an explore with solidity and web3
 - [Solidity](./learn-solidity.md)
 - [Web 3 JS](./learn-web3js.md)
 
-
+***Maybe start by adding your favorite free learning resources below ***
 
 ## Free resources to learn WEB3  
 
