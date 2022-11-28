@@ -8,7 +8,11 @@ A place to dump my random findings when having an explore with solidity and web3
 - [Solidity](./learn-solidity.md)
 - [Web 3 JS](./learn-web3js.md)
 
+
 ***Maybe start by adding your favorite free learning resources below ***
+
+### *Want to learn Web 3 and build an awsome reference while learning. start contributing ✅*
+
 
 ## Free resources to learn WEB3  
 
