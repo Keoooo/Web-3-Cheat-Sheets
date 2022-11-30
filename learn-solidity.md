@@ -4,31 +4,31 @@
 # Table of contents
 - [Solidity Reference Guide](#solidity-reference-guide)
 - [Table of contents](#table-of-contents)
-    - [*Versions*](#versions)
-    - [*Functions*](#functions)
-    - [*Import*](#import)
-    - [*Modifier*](#modifier)
-    - [*Storage vs Memory*](#storage-vs-memory)
-    - [*Function Visibility Specifiers*](#function-visibility-specifiers)
-    - [*Function modifiers*](#function-modifiers)
-    - [*Solidity Variables Types*](#solidity-variables-types)
-    - [*If statements*](#if-statements)
-    - [*SafeMath underflow/overflow*](#safemath-underflowoverflow)
-    - [*Fixed-size Arrays*](#fixed-size-arrays)
-    - [*Dynamically-sized Arrays*](#dynamically-sized-arrays)
-    - [*BytesAndStrings*](#bytesandstrings)
-    - [*Require*](#require)
-    - [*Inheritance*](#inheritance)
-    - [*Struct*](#struct)
+  - [*Versions*](#versions)
+  - [*Functions*](#functions)
+  - [*Import*](#import)
+  - [*Modifier*](#modifier)
+  - [*Storage vs Memory*](#storage-vs-memory)
+  - [*Function Visibility Specifiers*](#function-visibility-specifiers)
+  - [*Function modifiers*](#function-modifiers)
+  - [*Solidity Variables Types*](#solidity-variables-types)
+  - [*If statements*](#if-statements)
+  - [*SafeMath underflow/overflow*](#safemath-underflowoverflow)
+  - [*Fixed-size Arrays*](#fixed-size-arrays)
+  - [*Dynamically-sized Arrays*](#dynamically-sized-arrays)
+  - [*Bytes And Strings*](#bytes-and-strings)
+  - [*Require*](#require)
+  - [*Inheritance*](#inheritance)
+  - [*Struct*](#struct)
     - [*Events*](#events)
-    - [*Typecasting*](#typecasting)
-    - [*Enums*](#enums)
-    - [*Mappings*](#mappings)
+  - [*Typecasting*](#typecasting)
+  - [*Enums*](#enums)
+  - [*Mappings*](#mappings)
     - [*Interfaces*](#interfaces)
-    - [*Global Variables*](#global-variables)
-    - [*Contract Address*](#contract-address)
-    - [*Fallback Functions*](#fallback-functions)
-    - [*Access Contract Balance*](#access-contract-balance)
+  - [*Global Variables*](#global-variables)
+  - [*Contract Address*](#contract-address)
+  - [*Fallback Functions*](#fallback-functions)
+  - [*Access Contract Balance*](#access-contract-balance)
 - [Solidity Concepts](#solidity-concepts)
     - [*Immutability of Contracts*](#immutability-of-contracts)
     - [*Ownable Contracts*](#ownable-contracts)
@@ -36,7 +36,7 @@
     - [*Time Units*](#time-units)
 
 
-### *Versions*
+## *Versions*
 
 Add to top of file to clarify the version you want to use.
 
@@ -46,7 +46,10 @@ nothing lower than 0.8.0 will be used in this example
 
 Make sure the version is the same as the  `hardhat.config.js`
 
-### *Functions*
+<br/>
+<br/>
+
+## *Functions*
 
 
 - it is convention to start private function names with an underscore (_).
@@ -57,9 +60,12 @@ function foo() public returns (string memory) {
   return foo;
 }
 ```
-### *Import*
+## *Import*
 
-### *Modifier*
+<br/>
+<br/>
+
+## *Modifier*
 
 [Solidity Docs Ref](https://docs.soliditylang.org/en/v0.8.17/contracts.html?highlight=modifier#modifier-overriding)
 
@@ -111,7 +117,10 @@ modifier SomethingAfter {
 
 [A good article on _;](https://medium.com/coinmonks/solidity-tutorial-all-about-modifiers-a86cf81c14cb)
 
-### *Storage vs Memory*
+<br/>
+<br/>
+
+## *Storage vs Memory*
 
 variables can be stored in two places. storage and memory 
 
@@ -124,7 +133,11 @@ The Gas consumption of Memory is not very significant as compared to the gas con
 2.Function arguments are in memory.
 3.Whenever a new instance of an array is created using the keyword ‘memory’, a new copy of that variable is created. Changing the array value of the new instance does not affect the original array.
 `
-### *Function Visibility Specifiers*
+
+<br/>
+<br/>
+
+## *Function Visibility Specifiers*
 
 *** Functions by default are set to public this can make you vulnerable to attacks  ***
 *** only make public the functions you want to expose to the world. ***
@@ -136,13 +149,18 @@ The Gas consumption of Memory is not very significant as compared to the gas con
 
 - internal: only visible internally
 
-### *Function modifiers*
+<br/>
+<br/>
+
+## *Function modifiers*
 
 Function Modifiers are used to modify the behavior of a function. For example to add a prerequisite to a function.
 
+<details>
+  <summary>All Function modifiers</summary>
+  
 
-
-- **_ pure _** for functions: Disallows modification or access of state.
+  - **_ pure _** for functions: Disallows modification or access of state.
 - **_ view _** for functions: Disallows modification of state.
 - **_ payable_** for functions: Allows them to receive Ether together with a call.
 - **_ constant_** for state variables: Disallows assignment (except initialisation), does not occupy storage slot.
@@ -152,7 +170,13 @@ Function Modifiers are used to modify the behavior of a function. For example to
 - **_ virtual_** for functions and modifiers: Allows the function’s or modifier’s behaviour to be changed in derived contracts.
 - **_ override:_** States that this function, modifier or public state variable changes the behaviour of a function or modifier in a base contract.
 
-### *Solidity Variables Types*
+
+</details>
+
+<br/>
+<br/>
+
+## *Solidity Variables Types*
 
 **Simple Types**
 
@@ -164,7 +188,10 @@ Function Modifiers are used to modify the behavior of a function. For example to
 - | Signed Int | int8 to int 256 In steps on 8, default 0 | `int8 public x = -10` |
 - | Boolean | True,False | `bool public name` |
 
-### *If statements*
+<br/>
+<br/>
+
+## *If statements*
 
 In Solidity if statements look similar to javascript syntax,
 
@@ -181,9 +208,10 @@ if (expression 1) {
 
 ```
 
+<br/>
+<br/>
 
-
-### *SafeMath underflow/overflow*
+## *SafeMath underflow/overflow*
 
 batch overflow exploit
 
@@ -209,7 +237,10 @@ If a overflow or underflow happens after this version the contract will revert t
 https://hackernoon.com/hack-solidity-integer-overflow-and-underflow
 https://peckshield.medium.com/alert-new-batchoverflow-bug-in-multiple-erc20-smart-contracts-cve-2018-10299-511067db6536
 
-### *Fixed-size Arrays*
+<br/>
+<br/>
+
+## *Fixed-size Arrays*
 
 - Has a compile-time fixed size
 - bytes1, bytes 2, ... bytes 32
@@ -229,9 +260,9 @@ contract FixedSizeArrays{
 Outer Bounds Error
 
 If you try to assess an array greater than or less than the array
-
-**_Change An Array Value_**
-
+<details>
+  <summary>Outer Bounds Error Example</summary>
+  
 ```
 // example: Outer Bounds Error
 
@@ -254,6 +285,11 @@ function getLength() public view return(uint)_{
 }
 
 ```
+</details>
+
+
+<details>
+<summary>Fixed Size Array Example</summary>
 
 ```
 // example:
@@ -284,11 +320,19 @@ bytes3 public b3;  // value  0x616263
 
 ```
 
-https://www.asciitable.com/
+</details>
+
+<br/>
+<br/>
+
+[ASCII Table](''https://www.asciitable.com/'')
 
 if an array is initialized with not a full value padding will be added.
 
-### *Dynamically-sized Arrays*
+<br/>
+<br/>
+
+## *Dynamically-sized Arrays*
 
 - bytes
 - string (UTF-8 encoded) is a dynamic array similar to bytes
@@ -299,7 +343,11 @@ if an array is initialized with not a full value padding will be added.
 - push(push item to end of an array)
 - pop(removes element from the end of an array)
 
+<details>
+<summary>Dynamically-sized Arrays Example</summary>
+
 ```
+
 //SPDX-License-Identifier: GPL-3.0
 
 pragma solidity >=0.5.0 <0.9.0;
@@ -345,8 +393,13 @@ numbers = y;
 }
 
 ```
+</details>
+<br/>
 
-### *BytesAndStrings*
+<br/>
+<br/>
+
+## *Bytes And Strings*
 
 One difference between bytes and string is that we cannot add elements to a string variable as we can with type bytes
 
@@ -358,17 +411,26 @@ contract BytesAndString {
 
 }
 ```
-### *Require*
+
+<br/>
+<br/>
+
+## *Require*
 
 require makes it so that the function will throw an error and stop executing if some condition is not true
 
 require takes two parameters, first is the condition that you want to check and the second is an optional error message you want to show to the user when and if the value returned is false.
 
-### *Inheritance*
+<br/>
+<br/>
+
+## *Inheritance*
 
 
+<br/>
+<br/>
 
-### *Struct*
+## *Struct*
 
 A Struct types are used to represent a record.
 
@@ -386,6 +448,8 @@ struct Car{
 
 ```
 
+<br/>
+<br/>
 
 ### *Events*
 Event is an inheritable member of a contract.
@@ -394,24 +458,30 @@ An event can be declared using event keyword.
 ```
 //Declare an Event
 event Deposit(address indexed _from, bytes32 indexed _id, uint _value);
+
+emit Deposit(msg.sender, _id, msg.value)
+
 ```
 
 
-```emit Deposit(msg.sender, _id, msg.value)```
-
-
-how front end will listen u
+how front end will listen...
 
 ```YourContract.IntegersAdded(function(error, result) {
   // do something with result
 })
 ```
-### *Typecasting*
+
+<br/>
+<br/>
+
+## *Typecasting*
 
 Typecasting converts data types 
 
+<br/>
+<br/>
 
-### *Enums*
+## *Enums*
 
 Enums restrict a variable to have one of only a few predefined values. The values in this enumerated list are called enums.
 
@@ -431,7 +501,10 @@ Enums restrict a variable to have one of only a few predefined values. The value
     later in the code you can use for if statements ect
 ```
 
-### *Mappings*
+<br/>
+<br/>
+
+## *Mappings*
 
 Mapping is a reference type as arrays and structs. Following is the syntax to declare a mapping type.
 
@@ -468,6 +541,9 @@ contract Auction{
 
 ```
 
+<br/>
+<br/>
+
 ### *Interfaces*
 Solidity allows you to interact with other contracts without having their code by using their interface.
 
@@ -482,10 +558,15 @@ interface Divide {
 }
 ```
 
+<br/>
+<br/>
 
-### *Global Variables*
+## *Global Variables*
+ 
+ These are special variables which exist in global workspace and provide information about the blockchain and transaction properties.
 
-
+<details>
+<summary>Global Variables Usage Examples </summary>
 
 ***commonly used***
 
@@ -536,6 +617,14 @@ return address(this).balance;
 
 
 ```
+
+</details>
+
+<details>
+
+
+<summary>All Global Variables</summary>
+
 
 - `abi.decode(bytes memory encodedData, (...)) returns (...)`: :ref:`ABI <ABI>`-decodes
   the provided data. The types are given in parentheses as second argument.
@@ -598,7 +687,13 @@ return address(this).balance;
 - `type(T).min` (`T`): the minimum value representable by the integer type `T`, see :ref:`Type Information<meta-type>`.
 - `type(T).max` (`T`): the maximum value representable by the integer type `T`, see :ref:`Type Information<meta-type>`.
 
-### *Contract Address*
+</details>
+
+<br/>
+<br/>
+<br/>
+
+## *Contract Address*
 
 - Any contract has its own unique address which is generated at deployment
 - The contract address is generated based on the address of the creator contract and the no. transactions of that account (nonce) it cant be calculated in advance
@@ -611,7 +706,12 @@ return address(this).balance;
   - send()
   - call() callcode() delegatecall()
 
-### *Fallback Functions*
+
+<br/>
+<br/>
+<br/>
+
+## *Fallback Functions*
 
 
 fallback function is an external function with neither a name, parameters, or return values. It is executed in one of the following cases:
@@ -620,7 +720,11 @@ fallback function is an external function with neither a name, parameters, or re
 - If there was no data supplied along with the function call.
 - Only one such unnamed function can be assigned to a contract.
 
-### *Access Contract Balance*
+
+<br/>
+<br/>
+
+## *Access Contract Balance*
 
 
 //SPDX-License-Identifier: GPL-3.0
@@ -629,6 +733,12 @@ pragma solidity >=0.5.0 <0.9.0;
 
 - getBalance()
 - require(owner == msg.sender, "Transfer failed, you are not the owner!!"); will prevent anyone stealing balance
+
+
+
+<details>
+
+<summary>Get Contract Balance Example</summary>
 
 ```
  contract Deposit{
@@ -664,6 +774,14 @@ pragma solidity >=0.5.0 <0.9.0;
  }
 
 ```
+
+
+</details>
+
+<br/>
+<br/>
+<br/>
+
 
 # Solidity Concepts 
 
