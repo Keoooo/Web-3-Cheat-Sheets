@@ -7,6 +7,7 @@
     - [*Versions*](#versions)
     - [*Functions*](#functions)
     - [*Import*](#import)
+    - [*Modifier*](#modifier)
     - [*Storage vs Memory*](#storage-vs-memory)
     - [*Function Visibility Specifiers*](#function-visibility-specifiers)
     - [*Function modifiers*](#function-modifiers)
@@ -31,6 +32,8 @@
 - [Solidity Concepts](#solidity-concepts)
     - [*Immutability of Contracts*](#immutability-of-contracts)
     - [*Ownable Contracts*](#ownable-contracts)
+    - [*Gas*](#gas)
+    - [*Time Units*](#time-units)
 
 
 ### *Versions*
@@ -56,7 +59,57 @@ function foo() public returns (string memory) {
 ```
 ### *Import*
 
+### *Modifier*
 
+[Solidity Docs Ref](https://docs.soliditylang.org/en/v0.8.17/contracts.html?highlight=modifier#modifier-overriding)
+
+A function modifier is a compile-time source code roll-up.
+It can be used to amend the semantics of functions in a declarative way.
+
+Modifiers are mainly used to be automatically checking a condition prior execution of the function. 
+Modifiers are use full as they can be reused across the code if you have to check for conditions in multiple places.
+
+
+```
+modifier MyModifier {
+    // modifier code goes here...
+}
+```
+
+Modifiers can be used with argument or without 
+
+```
+modifier ModifierWithArguments(uint a) {
+    // ...
+}
+
+modifier onlyOwner {
+    require(msg.sender == owner);
+    _;
+}
+
+```
+
+**_;  SYMBOL  **
+
+
+_; is used to merge the function code where the _; is placed. 
+A modifier must have the symbol _; within its body in order to execute.
+
+
+```
+modifier SomethingBefore {
+    require(/* check something first */);
+    _; // resume with function execution
+}
+// Do one where modifier is placed in the middle
+modifier SomethingAfter {
+    _; // run function first
+    require(/* then check something */)
+}
+```
+
+[A good article on _;](https://medium.com/coinmonks/solidity-tutorial-all-about-modifiers-a86cf81c14cb)
 
 ### *Storage vs Memory*
 
@@ -633,4 +686,43 @@ BUT - developers can create inbuilt upgrade and delete functions to there contra
  Because constructors are executed only one time, when the contract is first created this is a great place to declare your contract owner using msg.sender. 
 
  A good reference for contract ownership is the contract below a lot of contracts inherit this contract. 
- https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/access/Ownable.sol#L43
+ 
+[openzeppelin-ownership](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/access/Ownable.sol#L43)
+
+
+
+
+ ### *Gas*
+
+ In Solidity, your users have to pay every time they execute a function on your DApp using a currency called gas.
+
+
+- gas is a unit of computation
+- gas spent is the total amount of gas used in a transaction
+- gas price is how much ether you are willing to pay per gas
+
+There are 2 upper bounds to the amount of gas you can spend
+
+- gas limit (max amount of gas you're willing to use for your transaction, set by you)
+- block gas limit (max amount of gas allowed in a block, set by the network)
+
+Its important to know the tips to save gas 
+
+[Structs Packing](https://dev.to/javier123454321/solidity-gas-optimizations-pt-3-packing-structs-23f4)
+
+
+
+### *Time Units* 
+
+Solidity provides some native units for dealing with time. We can use the following units: seconds, minutes, hours, days, weeks and years. These units will convert to a uint of the number of seconds in that specific length of time.
+
+``` now ``` will return the current unix timestamp of the latest block (the number of seconds that have passed since January 1st 1970)
+
+
+```
+ uint a = 3 hours; //  10800 or 3*60*60
+uint b = 5 minutes // 300 or 5*60
+uint d = 2 weeks // 1209600 or 2*7*24*60*60
+ ```
+
+ [Dates Tips](https://soliditytips.com/articles/solidity-dates-time-operations/)
