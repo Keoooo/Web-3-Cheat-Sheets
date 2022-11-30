@@ -1,4 +1,4 @@
-# learning-web3-solidity-hardhart
+# Web 3 Cheat Sheets
 
 
 <img align="middle" alt="Visual Studio Code" width="40px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/solidity/solidity-original.svg" style="padding-right:10px;" />
@@ -20,7 +20,7 @@
 <br />
 
 
-** Start by adding your favorite free learning resources below **
+**Start by adding your favorite free learning resources below**
 
 ### *Want to learn Web 3 and build an awsome reference while learning. start contributing ✅*
 
