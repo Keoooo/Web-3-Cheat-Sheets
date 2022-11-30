@@ -20,7 +20,7 @@
 <br />
 
 
-***Maybe start by adding your favorite free learning resources below ***
+** Start by adding your favorite free learning resources below **
 
 ### *Want to learn Web 3 and build an awsome reference while learning. start contributing ✅*
 
